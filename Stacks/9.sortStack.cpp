@@ -1,7 +1,6 @@
 #include <bits/stdc++.h> 
 using namespace std;
 
-#include <bits/stdc++.h> 
 //logic is to pop all elements, while inserting them insert at sorted position.
 
 void insert(stack<int> &s,int target)
