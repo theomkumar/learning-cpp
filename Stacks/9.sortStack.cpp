@@ -2,7 +2,6 @@
 using namespace std;
 
 //logic is to pop all elements, while inserting them insert at sorted position.
-//hi
 void insert(stack<int> &s,int target)
 {
     if ( s.empty() || s.top() < target )
