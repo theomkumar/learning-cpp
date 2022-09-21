@@ -1,5 +1,7 @@
 #include<iostream>
 using namespace std;
+//Approach : INTUITION it's basically like fibonacci
+//SLOW APPROACH
 // num_ways(3stairs) = num_ways(2stairs) + num_ways(1)
 // num_ways(n) = num_ways(n-1) + num_ways(n-2);
 
