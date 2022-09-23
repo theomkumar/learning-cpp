@@ -54,7 +54,7 @@ int binary(vector<int> &n, int target)
                 return m + 1;
         }
         return 
-            e+1;
+            e+1;//+1 coz index + 1 = size 
     }
     vector<int> answerQueries(vector<int>& n, vector<int>& q) 
     {
