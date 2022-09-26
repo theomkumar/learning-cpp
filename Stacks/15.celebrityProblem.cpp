@@ -42,7 +42,7 @@ using namespace std;
         return -1;
     }
 
-##APPROCH 2: OPTIMISED USING STACK
+##APPROCH 2: OPTIMISED USING STACK O(N)
 //Logic push all indices in stack and compare the top(A) and one below element(B), if A knows B then A is not celeb so we'll pop A and vice versa.
 // then check condition for being celeb. 
 
