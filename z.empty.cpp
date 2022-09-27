@@ -1,32 +1,34 @@
-#include<iostream>
-#include<string>
 using namespace std;
 
+#include <bits/stdc++.h> 
 
-string removeStars(string s) {
-    int j = 0;
-    for (int i = 0; i < s.size(); ++i) 
-    {
-        if (s[i] == '*')
-        {
-            j--;
-        }
-        else
-        {
-            s[j++] = s[i];
-        }
-    }
-    return s.substr(0,j);
-}
-int main() 
+bool findRedundantBrackets(string &s)
 {
-    string s1 = "0123456789";
-    cout <<s1 << endl;
-    cout <<s1.substr()
-    // cout << "BEFORE: "<< s1;
+    stack<int> st;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (s[i] == '(' || s[i] == '+' || s[i] == '-' || s[i] == '*' ||s[i] == '/')
+        {
+            st.push(s[i]);
+        }
+        else // ')' or alphabet
+        {
+            bool isRedundant = 1;
+            if (s[i] == ')')
+            {
+                while (!st.empty() && st.top() != '(')
+                {
+                    if (st.top() != ')')//this mean st.top is operator
+                    {
+                        isRedundant = 0;
+                    }
+                    st.pop();
+                }
+                if (isRedundant == 1) return 1;
+                st.pop(); //popping corresponding '('
+            }
+        }
+        return 0;
+    }
 
-    // cout <<"\nAfter: "<< removeStars(s1);
-
-    
-    return 0;
 }
