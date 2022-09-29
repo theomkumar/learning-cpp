@@ -13,7 +13,8 @@ int main() {
     int n=12;
     printarray(third,n);
     //print size of array/length
-    cout<<endl<<sizeof(third)/sizeof(int);
+    cout<<endl<<sizeof(third)/sizeof(int)<<endl;
+    // cout<<endl<<sizeof(third)/sizeof(third[0]);
     
 }
     
