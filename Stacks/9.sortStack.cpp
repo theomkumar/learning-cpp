@@ -28,9 +28,9 @@ int main()
 {
     stack<int> s;
     s.push(5);
-    s.push(-2);
+    s.push(2);
     s.push(9);
-    s.push(-7);
+    s.push(7);
     s.push(3);
 
     sortStack(s);
