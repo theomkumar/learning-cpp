@@ -1,7 +1,7 @@
 /* 2-D vector initialization* 
-
+   vector<vector<int>> vec( n , vector<int> (m); n rows m columns; 
    vector<vector<int>> vec( n , vector<int> (m, 0));  (n rows, m columns , of value 0);
 
-   vector<vector<int>> vec( n , vector<int> (m); empty n rows m columns; 
+
             we can assign as vec[n][m] = 1 
 */
