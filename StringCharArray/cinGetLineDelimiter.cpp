@@ -9,7 +9,7 @@ int main() {
     cout<<"enter name(press $ at end): ";
     
     //$ is delimiter, if we leave it like (cin,s) only then "\n" will be the delimiter.
-    getline(cin,name,'$');
+    getline(n,name,'$'); 
     
     
     char address[30];
