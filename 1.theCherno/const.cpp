@@ -2,8 +2,9 @@
 #include<string>
 using namespace std;
 
-/*
-think of '*' as boundary, whatever is in contact with const is is meant to be constant
+/* READ IT:
+
+Think of '*' as boundary, whatever is in contact with const is is meant to be constant
 eg1: int const *ptr -> int const |*| ptr -> (int const),(ptr)
 eg2: const int *ptr -> const int |*| ptr -> (const int),(ptr)
 eg3: int * const ptr; -> int |*| const ptr -> (int),(const ptr)
