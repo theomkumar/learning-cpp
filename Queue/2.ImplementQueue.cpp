@@ -1,6 +1,5 @@
 /*
 Approach 1: Queue Implementation Using an array
-
 class MyQueue {
 public:
     int arr[100];
@@ -33,7 +32,6 @@ public:
     }
 };
 2. Queue Implementation Using Vector
-
 class MyQueue {
 public:
     vector<int> v;
@@ -58,5 +56,32 @@ public:
         return v.empty();
     }
 };
-
+3.Queue Implementation Using Stack!!
 */
+class MyQueue {
+public:
+    stack<int> st;
+    void push(int x) {
+        push_bottom(x);
+    }
+    
+    void push_bottom(int x)
+    {
+        if (st.empty())
+            return st.push(x);
+        int top = st.top();
+        st.pop();
+        push_bottom(x);
+        st.push(top);
+    }
+    
+    int pop() {
+        int top = st.top();
+        st.pop();
+        return top;
+    }
+    
+    int peek() { return st.top(); }
+    
+    bool empty() { return st.empty(); }
+};

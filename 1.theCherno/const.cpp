@@ -23,25 +23,43 @@ eg3
 
 int main()
 {
-    const int age = 90;
+//**************************************************************************
+    int age = 40;
+    
+    //eg1.
 
-    // case 1 : const int* a == int const * a
+    //int const *ptr = new int; // (int const) (ptr)
+    const int *ptr = new int; // (const int) (ptr)
 
-    const int* a = new int; // this makes this pointer read only -> i.e content of pointer can't be changed but the address pointer is pointing to can be changed
+    //*ptr = 12; const is in contact with int
+    ptr = &age;
+
+    //eg2
+    int *const ptr2 = new int; // (int) (const ptr2)
+    *ptr2 = 12;
+    // ptr2 = &age;//const is in contact with pointer 'ptr2'
+
+    //eg3
+    const int *const ptr3 = new int; // (const int) (const ptr3)
+    // *ptr3 = 12;
+    // ptr3 = &age;
+
+//****************************************************************************
+    const int max_age = 90;
+    cout <<"ADDRESS OF MAX_AGE: "<<&max_age <<'\n';
+
+//    int *maxAge = &max_age; //a value of type "const int *" cannot be used to initialize an entity of type "int 
+    int *maxAge = (int*)&max_age;
+
+    cout << "Address stored in ptr: " << maxAge <<'\n';
+    cout <<"pointer dereference before : " << *maxAge <<'\n';
+
+    *maxAge = 101;
+
+    cout <<"Pointer dereference after: " << *maxAge <<'\n';
+    cout <<"max_age: " << max_age <<'\n';
 
 
-//    *a = 2; //changing content of the pointer is not allowed!
 
-   a = (int*)&age; //changing what pointer is pointing to
-    cout << *a;
-
-    //case 2: int *const a : pointer's content can be changed but not the address it is pointing to.
-    const int* x = new int;
-    // *x = 12; not allowed
-    x = &age; //allowed
-
-    int *const b = new int;
-    *b = 122; //can change
-    // b = &x; //can't change
 
 }
