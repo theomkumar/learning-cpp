@@ -20,7 +20,7 @@ step 2: insert value at qrear.
 
 **Primary Logic for this Code :**
 1. empty condition : qfront = qrear = -1; 
-2. single element in Q when : qrear = qfront. //when we pop single element we'll assign qfront = qrear = -1, coz that's our empty condition.
+2. single element in Q when : qrear = qfront. //when we pop last element we'll assign qfront = qrear = -1, coz that's our empty condition.
 3. Full condition : when next index of qrear is occupied by qfront, no vacant space! 
 
 */

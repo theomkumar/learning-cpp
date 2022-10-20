@@ -1,6 +1,8 @@
+#include<queue>
+
 class MyStack {
 public:
-    queue<int> q;
+    std::queue<int> q;
     MyStack()  {
     }
     
