@@ -28,10 +28,10 @@ int gcd(int a, int b)
     //we are changing remainder into divisor & divisor into dividend and 
     //R = remainder ; a = dividend i.e > b = divisor
     int R;
-    if (b>a) 
-        swap (a,b);
-    while(a%b) {
-        R = a % b; 
+    if (b > a)
+        swap(a, b);
+    while (a % b) {
+        R = a % b;
         a = b;
         b = R;
     }
@@ -39,13 +39,13 @@ int gcd(int a, int b)
 }
 
 int main() {
-    int a,b;
-    cout<<"enter the values of a and b"<<"\n";
-    cin>>a>>b;
-    int ans = gcd(a,b);
-    cout<<"gcd of "<<a<<" "<<b<<" is : "<<ans<<"\n";
+    int a, b;
+    cout << "enter the values of a and b" << "\n";
+    cin >> a >> b;
+    int ans = gcd(a, b);
+    cout << "gcd of " << a << " " << b << " is : " << ans << "\n";
 
     //Lcm*hcf/gcd = a*b
-    cout<<"lcm of "<<a<<" "<<b<<" is : "<<((a*b)/ans)<<"\n";
+    cout << "lcm of " << a << " " << b << " is : " << ((a * b) / ans) << "\n";
     return 0;
 }
