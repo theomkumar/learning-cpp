@@ -3,7 +3,7 @@
 using namespace std;
 
 //gcd using '-' operator
-/*(int gcd(int a,int b) {
+int gcd(int a,int b) {
     if (a==0) return b;
     if (b==0) return a;
 
@@ -13,7 +13,7 @@ using namespace std;
     }
     return a;
 }
-
+/*
 // gcd using '%' operator with recursion
 int gcd(int a, int b)
 {
@@ -21,7 +21,7 @@ int gcd(int a, int b)
         return b;
     return gcd(b % a, a);
 }
-*/
+
 // gcd using '%' operator without recursion
 int gcd(int a, int b)
 {
@@ -37,15 +37,15 @@ int gcd(int a, int b)
     }
     return b;
 }
-
+*/
 int main() {
     int a, b;
-    cout << "enter the values of a and b" << "\n";
+    cout << "enter the values of a and b: ";
     cin >> a >> b;
     int ans = gcd(a, b);
     cout << "gcd of " << a << " " << b << " is : " << ans << "\n";
 
-    //Lcm*hcf/gcd = a*b
+    //Lcm*hcf(gcd) = a*b => Lcm = (a*b)/gcd
     cout << "lcm of " << a << " " << b << " is : " << ((a * b) / ans) << "\n";
     return 0;
 }

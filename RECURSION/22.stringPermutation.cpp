@@ -10,7 +10,7 @@ void print (vector<string> &ans) {
 }
 void solve (string &str, vector<string> &ans, int idx)
 {
-    if (idx >= str.size()){
+    if (idx == str.size()){
         ans.push_back(str);
         return;
     }
