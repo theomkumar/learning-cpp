@@ -2,19 +2,19 @@ using namespace std;
 /*watch youtube! and dry run ...
 
 Logic : 
-top[] size = no. of stacks, and it contains  index of top element of respective stack. e.g top element of 2nd stack will be kept in [2-1]th stack.
+top[] size = no. of stacks, and it contains  index of top element of respective stack. 
 if ith stack is empty then top[i] = -1;
 we initialise top[] with -1 as all stacks are empty during initialisation.
 
 freespot : denotes index of arr which is free, so we can push element there, and we need to update freespot to next available free spot!
-we initialise freespot to 0 and if we are pushing an element then we'll update freespot to next free spot and that'll be 1 that's why we initialise next[] with 1!  //next[0] = 1 
+we initialise freespot to 0 and if we are pushing an element then we'll update freespot to next free spot and that'll be 1 that's why we initialise next[0] with 1!  //next[0] = 1 ,next[] = {1,2,3,4,.....-1};
 
 Next: stores next free spot, eg. for i = 0, next free spot is 1 , next[0] = 1;
 //it's primary goal is to update freespot variable with next free index, after that we can store previous element in it why ? coz when we pop then we will have to update top of stack with previous element, and we can easily access it this way!.
 
 next : 2 functions
 1. it'll contain next free spot
-2. after assigning freespot ,it contains prev element index (it is actually current top element , after we push 'x' it'll become prev!)
+2. after assigning freespot ,it stores prev element index (which is actually current top element how? after we push 'x' it'll become prev!)
 */
 
 

@@ -1,1 +1,1 @@
-temp.length()==0 ||
+permut
