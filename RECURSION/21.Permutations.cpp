@@ -34,7 +34,8 @@ void solve (vector<int>&nums, vector<vector<int>>&ans, int idx)
     }
 }
 
-vector<vector<int>> permute(vector<int>& nums) {
+vector<vector<int>> permute(vector<int>& nums) 
+{
     vector<vector<int>> ans;
     solve(nums, ans, 0);
 
