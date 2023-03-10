@@ -63,6 +63,54 @@ void interLeaveQ2(queue<int> &q)
         q.pop();
     }
 }
+// works even for odd sized queue.
+void interLeaveQ3(queue<int> &q)
+{
+    int n = q.size();
+    stack<int> st;
+
+    //first half element in stack 
+    for (int i = 0; i < n/2; i++)
+    {
+        st.push(q.front());
+        q.pop();
+    }
+    n = q.size();
+    //now reverse the stack element 
+    while (!st.empty())
+    {
+        q.push(st.top());
+        st.pop();
+    }
+    //push front half to back, so back half comes to front so we can push it to stack again to complete the reversal process
+    for (int i = 0; i < n; i++)
+    {
+        q.push(q.front());
+        q.pop();
+    }
+    n = q.size();
+    //again move it to stack;
+    for (int i = 0; i < n/2; i++)
+    {
+        st.push(q.front());
+        q.pop();
+    }
+    n = q.size();
+    //now we can interleave
+    while (!st.empty())
+    {
+        q.push(st.top());
+        st.pop();
+        q.push(q.front());
+        q.pop();
+        n--;
+    }
+    while (n--)
+    {
+        q.push(q.front());
+        q.pop();
+    }
+}
 
 int main()
 {
@@ -70,7 +118,8 @@ int main()
     q.push(11); q.push(12); q.push(13); q.push(14); q.push(15); q.push(16); q.push(17); q.push(18); q.push(19); q.push(20);
 
 //    interLeaveQ1(q);
-    interLeaveQ2(q);
+    // interLeaveQ2(q);
+    interLeaveQ3(q);
     int length = q.size();
     for (int i = 0; i < length; i++) {
         cout << q.front() << " ";

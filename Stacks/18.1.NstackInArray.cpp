@@ -10,7 +10,7 @@ freespot : denotes index of arr which is free, so we can push element there, and
 we initialise freespot to 0 and if we are pushing an element then we'll update freespot to next free spot and that'll be 1 that's why we initialise next[0] with 1!  //next[0] = 1 ,next[] = {1,2,3,4,.....-1};
 
 Next: stores next free spot, eg. for i = 0, next free spot is 1 , next[0] = 1;
-//it's primary goal is to update freespot variable with next free index, after that we can store previous element in it why ? coz when we pop then we will have to update top of stack with previous element, and we can easily access it this way!.
+//it's primary goal is to update freespot variable with next free index, after that we can store index of previous element in it why ? coz when we pop then we will have to update top of stack with previous element, and we can easily access it this way!.
 
 next : 2 functions
 1. it'll contain next free spot

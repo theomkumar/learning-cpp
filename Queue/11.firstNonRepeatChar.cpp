@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//https://practice.geeksforgeeks.org/problems/first-non-repeating-character-in-a-stream1216/1
+
 //Using map
 class Solution {
 	public:
@@ -17,7 +19,7 @@ class Solution {
                 while (!q.empty())
                 {
                     if (count[q.front()] > 1)
-                        q.pop()
+                        q.pop();
                     else 
                     {
                         ans.push_back(q.front());
@@ -31,6 +33,7 @@ class Solution {
 		}
 };
 //Using Frequency vector
+//#ATTEMPT 1:
 string FirstNonRepeating(string A){
     int count[26] = {0};
     //vector<int> count(26,0);
@@ -40,7 +43,6 @@ string FirstNonRepeating(string A){
     {
         count[A[i]-'a']++;
         q.push(A[i]);
-
         while (!q.empty())
         {
             if (count[q.front()-'a'] > 1)

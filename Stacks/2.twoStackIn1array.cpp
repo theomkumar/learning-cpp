@@ -1,7 +1,7 @@
 //Logic use top1(left to right order of insertion) to maintain top 
 //top2 (right to left) to maintain top
-//we are optimally utilisng space here, as for eg. if array size is 10, and stack one needs more space at a time say 7 and stack 2 uses 3, if we divide 10/2-> 5, 5 space for each , 
-//then stack one will miss out on 2 space while stack 2 will have 2 wasted, thus it's better to let either stack occupy as much as space is +nt; 
+//we are optimally utilisng space here, as for eg. if array size is 10, and stack one needs more space at a time say 7 and stack two is using 3 spaces, if we divide 10/2-> 5, 5 space for each , 
+//then stack one will miss out on 2 space while stack two will have 2 wasted, thus it's better to let either stack occupy as much as space is +nt; 
 //TC -> O(1)
 class TwoStack {
     int *arr;

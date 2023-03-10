@@ -37,14 +37,20 @@ class KQueue
             //update freespot to next free index
             free = next[idx];
 
+            //mark next as -1 as job of next is (1)to assign free to next freeSpot & (2)link prev element to next element of the q.
+            //if we don't mark it -1 then if we continue dequeue element and reach this element, then next[idx] will give index to some other index(i.e arr[next[idx]]) to dequeue but arr[next[idx]] could be vacant...so it'll continue dequeuing until the end of array,therefore -1 acts as a full stop, marking end of q.
 
-            //ig this step is optional, dry run to verify!
-            //mark next as -1 //job of next is to update free to next freespot and after this is done, we can mark next[idx] as -1, as it's not free anymore!
-            next[idx] = -1; 
+            //link ->
+            // eg: q1 : 4,5,6,7 -> in this q next[0] will be linked to next element i.e 1, and we want to dequeue all elements, first 4 will be dqueued, but it's linked to 5, so front[] will point to element 5, similarly 5-> 6, 6-> 7, but imagine if we did't mark next[] of 7 element as -1 then, this dqueuing would keep carrying on to whatever nex[] was pointing to!.
+
+            next[idx] = -1; //acts as end of current Q
+
             //check if Q is empty
             if (front[qn-1] == -1)//0-indexed array
+            {
+                next[idx] = -1; 
                 front[qn-1] = idx;
-
+            }
             else//linking next of curr rear to new element(data)
                 next[rear[qn-1]] = idx;
 
@@ -78,7 +84,7 @@ class KQueue
 };
 int main()
 {
-    KQueue q(10, 3);
+    KQueue q(7, 3);
     q.enqueue(10,1);
     q.enqueue(15,1);
     q.enqueue(20,2);
@@ -89,26 +95,11 @@ int main()
     q.dequeue(1);
     q.dequeue(1);
 
+    q.dequeue(1);
+    q.dequeue(1);
+    q.dequeue(1);
+    q.dequeue(1);
+    q.dequeue(1);
+
 }
 
-
-
-#include <bits/stdc++.h> 
-class NQueue{
-    int *arr, *rear, *front, *next,  
-public:
-    // Initialize your data structure.
-    NQueue(int n, int s){
-        
-    }
-
-    // Enqueues 'X' into the Mth queue. Returns true if it gets pushed into the queue, and false otherwise.
-    bool enqueue(int x, int m){
-        // Write your code here.
-    }
-
-    // Dequeues top element from Mth queue. Returns -1 if the queue is empty, otherwise returns the popped element.
-    int dequeue(int m){
-        // Write your code here.
-    }
-};
