@@ -9,12 +9,7 @@ public:
     int data;
     node* left, * right;
 
-    node(int data)
-    {
-        this->data = data;
-        left = NULL;
-        right = NULL;
-    }
+    node(int d): data(d), left(nullptr),right(nullptr) {}
 };
 
 node* buildTree(node* root)
@@ -236,22 +231,17 @@ void itPreOrder(node *root)
     stack<node*> s;
     s.push(root);
 
-    while(!s.empty())
+    while (!s.empty())
     {
-        node* temp = s.top();
+        root = s.top();
         s.pop();
-        if(temp == NULL)
-            continue;
-        else
-        {
-            cout<<temp->data<<' ';
+        cout << root -> data<<' ';
 
-            if(temp -> right)
-                s.push(temp->right);
+        if(root -> right)
+            s.push(root -> right);
 
-            if(temp -> left)
-                s.push(temp->left);
-        }
+        if(root -> left)
+            s.push(root -> left);
     }
     cout << '\n';
 }
@@ -260,52 +250,51 @@ void itInOrder(node *root)
 {
     if (root == NULL)
         return;
-    node* temp = root;
+    node* curr = root;
 
     stack<node*> s;
+    cout << '\n';
 
-
-    while(!s.empty() || temp != NULL)
+    while(!s.empty() || curr)
     {
-        if(temp != NULL)
+        if(curr)
         {
-            s.push(temp);
-            temp = temp -> left;
+            s.push(curr);
+            curr = curr -> left;
         }
         else
         {
-            temp = s.top();
+            curr = s.top();
             s.pop();
-            cout << temp->data<<' ';
-            temp = temp -> right;
+            cout << curr -> data <<' ';
+            curr = curr -> right;
         }
     }
-    cout << '\n';
 }
 //post -> LRN
 void itPostOrder(node *root)
 {
     if (root == NULL)
         return;
-    node* temp = root;
 
-    stack<node*> s;
+    stack<node*> s1, s2;
+    s1.push(root);
 
-
-    while(!s.empty() || temp != NULL)
+    while(!s1.empty())
     {
-        if(temp != NULL)
-        {
-            s.push(temp);
-            temp = temp -> left;
-        }
-        else
-        {
-            temp = s.top();
-            s.pop();
-            cout << temp->data<<' ';
-            temp = temp -> right;
-        }
+        root = s1.top();
+        s1.pop();
+        s2.push(root);
+
+        if(root -> left)
+            s1.push(root -> left);
+        if(root -> right)
+            s1.push(root -> right);
+    }
+    while(!s2.empty())
+    {
+        cout << s2.top()->data <<' ';
+        s2.pop();
     }
     cout << '\n';
 }
