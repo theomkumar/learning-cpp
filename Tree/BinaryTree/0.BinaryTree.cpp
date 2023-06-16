@@ -1,3 +1,5 @@
+//non linear data structure -> linked list is linear node1->node2->node3
+//tree is connected to multiple nodes
 #include<iostream>
 #include<queue>
 #include<stack>
@@ -30,7 +32,14 @@ node* buildTree(node* root)
 
     return root;
 }
-
+/*
+Node *buildTree()
+{
+    int data;
+    cin >> data;
+    Node* tree = new Node(data);
+}
+*/
 void levelOrderTraversal(node*& root)
 {
     if (root == NULL)
@@ -93,7 +102,7 @@ void reverseLevelOrder(node*& root)
     if (root == NULL)
         return;
 
-    //we can also use stack here
+    //we can also use stack here for simplicity
     vector<int> ans;
     queue<node*> q;
     q.push(root);

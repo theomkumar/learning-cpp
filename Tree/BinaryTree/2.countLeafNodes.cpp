@@ -30,6 +30,17 @@ void inOrder(BinaryTreeNode<int> *root, int &cnt)
     inOrder(root->right, cnt);
 
 }
+//2 nd 
+void postOrder(BinaryTreeNode<int> *root, int &count)
+{
+    if (root == NULL)
+        return;
+    postOrder(root -> left, count);
+    postOrder(root -> right, count);
+    if (root -> left == NULL && root -> right == NULL)
+        count++;
+}
+
 int noOfLeafNodes(BinaryTreeNode<int> *root){
     // Write your code here.
     int cnt = 0;
