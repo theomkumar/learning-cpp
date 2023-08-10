@@ -9,6 +9,7 @@ struct Node
     Node* left;
     Node* right;
 };
+//recursion logic: for every level , one element is considered, therefore we can use relation between level and size of vector
 //****************** USING RECURSION left view***************  
 void solve(Node* root, vector<int> &ans, int level)
 {

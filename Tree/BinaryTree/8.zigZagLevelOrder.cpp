@@ -1,13 +1,5 @@
 /**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
+
  *****************INTUITION**********************
 
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
@@ -44,6 +36,9 @@
         return ans; 
     }
  */
+// Logic : 2 ways
+// 1. push into the queue in a zig-zag manner
+// 2. push into queue normally (level order i.e left to right) but insert in vector in zig zag manner, using a boolean value
 class Solution {
 public:
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {

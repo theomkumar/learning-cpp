@@ -10,6 +10,8 @@ struct Node
     Node* left, * right;
 }; */
 
+// CATCH: what if the root is leaf node?
+
 class Solution {
 public:
     void left (Node* root, vector<int> &ans)
@@ -57,7 +59,7 @@ public:
 
         //left
         left(root -> left, ans);
-        //child
+        //child (twice: for edge case when the root is leaf node, alternatively we can check it before hand)
         child(root -> left, ans);
         child(root -> right, ans);
         //right

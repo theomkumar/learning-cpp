@@ -1,8 +1,12 @@
 /*
 https://leetcode.com/problems/maximum-depth-of-binary-tree/
 TC: O(N) going through each node
-SC: O(height) storing max O(height) in call stack
+SC: O(height) storing max O(height) in call stack in case of skewed tree
  */
+
+
+//Logic : maxDepth = max(maxDepthRight, maxDepthLeft) + 1(root node);
+
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
@@ -12,8 +16,7 @@ public:
         }
         int left = maxDepth(root -> left);
         int right = maxDepth(root -> right);
-        int ans = max(left, right) + 1;
 
-        return ans;
+        return max(left, right) + 1;
     }
 };
