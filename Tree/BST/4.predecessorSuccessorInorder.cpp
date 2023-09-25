@@ -16,6 +16,11 @@
 
 *************************************************************/
 
+//We can also use the property:
+//successor = Ancestor or Right Subtree Min
+//predecessor = Ancestor or Left Subtree Max
+//Ancestor(pred or succ) we can find when we are finding the key if root->val < key it can be potential predecessor and vice versa.
+
 pair<int, int> predecessorSuccessor(TreeNode *root, int key)
 {
     // Write your code here.
@@ -29,7 +34,7 @@ pair<int, int> predecessorSuccessor(TreeNode *root, int key)
         if (temp->data <= key)
         {
             temp = temp->right;
-        }
+        }  
         else
         {
             successor = temp->data;
