@@ -1,0 +1,87 @@
+#include <bits/stdc++.h> 
+/************************************************************
+
+    Following is the Binary Tree node structure
+    
+    template <typename T>
+    class TreeNode {
+        public :
+        T data;
+        TreeNode<T> *left;
+        TreeNode<T> *right;
+
+        TreeNode(T data) {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
+        }
+
+        ~TreeNode() {
+            if(left)
+                delete left;
+            if(right)
+                delete right;
+        }
+    };
+//TLE
+
+void inOrder(TreeNode<int>* root, vector<TreeNode<int>*> &in)
+{
+    if (!root)  return;
+    inOrder(root->left,in);
+    in.push_back(root);
+    inOrder(root->right,in);
+}
+TreeNode<int>* flatten(TreeNode<int>* root)
+{
+    // Write your code here
+    vector<TreeNode<int>*> in;
+    inOrder(root,in);
+    TreeNode<int>* ans = in[0];
+
+    for (int i = 0; i < in.size()-1; i++)
+    {
+        in[i]->left = NULL;
+        in[i]->right = in[i+1];
+    }
+    in[in.size()-1]->left = NULL;
+    in[in.size()-1]->right = NULL;
+    return ans;
+}
+************************************************************/
+void inOrder(TreeNode<int>* root, vector<int> &in)
+{
+    if (!root)  return;
+    inOrder(root->left,in);
+    in.push_back(root->data);
+    inOrder(root->right,in);
+}
+TreeNode<int>* flatten(TreeNode<int>* root)
+{
+    // Write your code here
+    vector<int> in;
+    inOrder(root,in);
+    TreeNode<int> *newRoot = new TreeNode<int>(in[0]);
+    TreeNode<int> *prev = newRoot;
+
+    for (int i = 1; i < in.size(); i++)
+    {
+        TreeNode<int> *curr = new TreeNode<int>(in[i]);
+        prev->left = NULL;
+        prev->right = curr;
+        prev = curr;
+    }
+    prev->right = NULL;
+    prev->left = NULL;
+    
+    return newRoot;
+}
+
+
+
+
+
+
+
+
+
