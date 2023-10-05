@@ -19,6 +19,23 @@ BinaryTreeNode<int>* preorderToBST(vector<int> &preorder) {
     return solve(preorder,mini,maxi,i);
 }
 
+
+class Solution {
+    TreeNode* buildTree(vector<int>& preorder,int &i, int maxi)
+    {
+        if (i == preorder.size() || preorder[i] > maxi)
+            return NULL;
+        TreeNode* root = new TreeNode(preorder[i++]);
+        root->left = buildTree(preorder,i,root->val);
+        root->right = buildTree(preorder,i,maxi);
+        return root;
+    }
+public:
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        int i = 0;
+        return buildTree(preorder,i,INT_MAX);
+    }
+};
 /*
 METHOD 1;
 sort the vector, to get inorder. Now we have both inorder and preorder , we can use the logic of make a binary tree using preorder and inorder to make BST;
