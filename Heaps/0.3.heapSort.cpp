@@ -3,6 +3,16 @@
 //step 2: heap sort logic (i.e swap first index element to last,decrease size, then heapify it, )
 class Solution {
 public:
+    void heapSort(vector<int>&nums, int n)
+    {
+        while(n > 1)
+        {
+            swap(nums[0], nums[n-1]);
+            n--;
+            heapify(nums, n, 0);
+        }
+    }
+
     void heapify(vector<int>& nums, int n, int i)
     {
         int largest = i;
@@ -18,15 +28,6 @@ public:
         }
     }
 
-    void heapSort(vector<int>&nums, int n)
-    {
-        while(n > 1)
-        {
-            swap(nums[0], nums[n-1]);
-            n--;
-            heapify(nums, n, 0);
-        }
-    }
     vector<int> sortArray(vector<int>& nums) {
         int n = nums.size();
         //creation of max heap
