@@ -19,20 +19,18 @@ void solve (vector<int>&nums, vector<vector<int>>&ans, int idx)
         ans.push_back(nums);
         return;
     }
-    
+ 
     for (int j = idx; j<nums.size(); j++)
     {
-            //step1
+        //step1
         swap(nums[idx], nums[j]);
-            //recursive call
+        //recursive call
         solve (nums, ans, idx+1); 
-        
-        //(backtracking) coz we are making changes in original array,and we are using reference variable,
-        //if we remove reference variable then we don't need to do backtracking but it will take extra space.
         //undo step1 
         swap(nums[idx], nums[j]);
     }
 }
+//(backtracking) coz we are making changes in original array,and we are using reference variable, //if we remove reference variable then we don't need to do backtracking but it will take extra space.
 
 vector<vector<int>> permute(vector<int>& nums) 
 {
