@@ -143,9 +143,47 @@ vector<int> mergeKSortedArrays(vector<vector<int>>& arrays, int k) {
 
 //OPTIMAL APPROACH 1(babbar):
 
-vector<int> mergeKSortedArrays(vector<vector<int>>&a, int k)
+#include <bits/stdc++.h> 
+class node{
+    public:
+    int i, j , data;
+    node(int row, int col, int d){
+        i = row;
+        j = col;
+        data = d;
+    }
+};
+class compare {
+public:
+    bool operator()(node* a, node* b) {
+        return (a->data > b->data);
+    }
+};
+vector<int> mergeKSortedArrays(vector<vector<int>>&arr, int k)
 {
-    // Write your code here. 
     vector<int> ans;
-   
+    ans.reserve(arr.size()*k);
+    
+    priority_queue<node*,vector<node*>,compare> minHeap;
+    //step 1: push 1st element in minHeap
+    for(int i = 0;i < arr.size(); i++)
+    {
+        node* temp = new node(i,0,arr[i][0]);
+        minHeap.push(temp);
+    }
+    while(minHeap.size())
+    {
+        node* temp = minHeap.top();
+        minHeap.pop();
+        int i = temp->i, j = temp->j;
+        ans.push_back(temp->data);
+        //push next element
+        if(j+1 < arr[i].size())
+        {
+            node* next = new node(i, j+1,arr[i][j+1]);
+            minHeap.push(next);
+        }
+    }
+    return ans;
 }
+
