@@ -3,10 +3,7 @@ using heap: (min )
 Logic: we will process first element of each array, and find the min,max that will be our initial range, the idea is to find smaller range than this one, it can only happen:
 1. if we increase the min or decrease the maximum, but we can't decrease the max if the array is sorted, so we'll go to the next element of the min range array;
 
-*/
-
-
-//approach 1: using class ,node, compare
+//with class 
 
 class Solution {
 public:
@@ -17,7 +14,7 @@ public:
     };
 
     struct compare {
-        bool operator()(node* &a, node* &b){
+        bool operator()(node* a, node* b){
             return a->data > b->data;
         }
     };
@@ -46,7 +43,7 @@ public:
             int row = temp->row, col = temp->col;
             //add next element infront of mini if within array
             if (col+1 < nums[row].size()){
-                minHeap.push(new node(nums[row][col+1],row, coGl+1));
+                minHeap.push(new node(nums[row][col+1],row, col+1));
                 maxi = max(maxi, nums[row][col+1]);
             }
             else //one of the array is fully traveresed!!
@@ -55,8 +52,6 @@ public:
         return {start,end};
     }
 };
-
-//approach 2: without class...
 
 //without class
 */
