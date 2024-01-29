@@ -21,3 +21,49 @@ GRAPH
 2. Adjacency List
   
 */
+//implementation of Adjacency list can be done by 
+#include<iostream>
+#include<unordered_map>
+#include<list>
+
+class graph{
+    public:
+    std::unordered_map<int,std::list<int> >adj;
+
+    void addEdge(int u,int v,bool isDirected)
+    {
+        //true -> undirected
+
+        //create an edge from u to v
+        adj[u].push_back(v);
+        if (isDirected == false)
+            adj[v].push_back(u);
+    }
+    void print(){
+        for (auto i:adj){
+            std::cout << i.first << "-> ";
+            for(auto j: i.second)
+                std::cout << j <<", ";
+
+            std::cout<<std::endl;
+        }
+    }
+
+};
+int main(){
+    graph g;
+    int n;
+    std::cout << "Enter no. of nodes\n";
+    std::cin>>n;
+    int m;
+    std::cout<<"Enter the number of edges\n";
+    std::cin>>m;
+
+    std::cout<<"Enter edges: ";
+    for(int i = 0; i < m; i++){
+        int u,v;
+        std::cin >> u >> v;
+        g.addEdge(u,v,false);
+    }
+    g.print();
+}

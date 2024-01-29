@@ -1,0 +1,33 @@
+//Cyclic graph , if start node == end node e
+Path:
+//a node cannot appear twice in a path.
+
+//Degree = no. edge that is attached to the nodes 
+
+Total Degree of a graph = 2 x Edge(each edge is connected to 2 nodes)
+
+IN DIRECTED GRAPH: degree = in degree + out degree
+
+//edge weight , by default it is Unit weight i.e 1
+
+//bfs
+{
+    level wise traversal : 0th level, 1st level, 2nd level....
+
+    while(!q.empty()) -> runs O(N) q contains all elements
+    {
+        for(auto edge: adj[top]) ::total-> O(degree)
+    }
+    O(degrees) coz the inner loops runs for all neighbours of all nodes.
+    //O(Degress) == O(2 * no. of Edges)
+
+    TC of Bfs == O(N) + O(2E)
+}
+//DFS
+{
+    Depths wise traversal
+    for(auto i : adj[node])//visit all neighbour, call dfs function call for each neigbour everytime thus going to depth
+
+    SC: O(N) + O(N) + O(N)
+    TC: O(N) + O(degree of graph == 2*E)
+}
