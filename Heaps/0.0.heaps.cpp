@@ -18,7 +18,7 @@ parent = i/2 th index
 2. take it to it's correct position (by swapping it with parents) O(log n)
 
 
-* DELETION(of first node): TC: O(log n)
+* DELETION(of root node): TC: O(log n)
 1. a[firstNode] = a[lastNode] O(1)
 2. delete last node. O(1)
 3. put first node to it's correct position by swapping with children O(log n)
@@ -48,6 +48,7 @@ class heap{
         arr[index] = data;
         while(index > 1)
         {
+            //if child > parent then swap
             if (arr[index] > arr[index/2])
             {
                 swap(arr[index], arr[index/2]);
